@@ -50,10 +50,10 @@ jobs:
         ifort /Qmkl /O3 /QxHost /exe:imtest.exe src/fortran-test/mtest.f90
         imtest.exe
     - name: upload
-        uses: actions/upload-artifact@v3
-        with:
-          name: imtest
-          path: imtest.exe
+      uses: actions/upload-artifact@v3
+      with:
+        name: imtest
+        path: imtest.exe
     - name: exclude unused files from cache
       if: steps.cache-install.outputs.cache-hit != 'true'
       shell: bash
