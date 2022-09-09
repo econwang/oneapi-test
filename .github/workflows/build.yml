@@ -45,10 +45,7 @@ jobs:
       run: scripts/install_windows.bat $WINDOWS_HPCKIT_URL $WINDOWS_FORTRAN_COMPONENTS
     - name: build
       shell: cmd
-      run: |
-        call "C:\Program Files (x86)\Intel\oneAPI\setvars-vcvarsall.bat" $VS_VER
-        ifort /Qmkl /O3 /QxHost /exe:imtest.exe src/fortran-test/mtest.f90
-        imtest.exe
+      run: src/fortran-test/win_build.bat $VS_VER
     - name: upload
       uses: actions/upload-artifact@v3
       with:
